@@ -4,7 +4,7 @@ input {
         jdbc_connection_string => "${PA_JDBC_CONN}"
         jdbc_user => "${PA_JDBC_USER}"
         jdbc_password => "${PA_JDBC_PASS}"
-        jdbc_driver_library => "../lib/ojdbc6.jar"
+        jdbc_driver_library => "lib/ojdbc6.jar"
         jdbc_driver_class => "Java::oracle.jdbc.driver.OracleDriver"
 
         statement =>
@@ -21,7 +21,8 @@ input {
           ementa ementa
           from documentos_saj5
           where
-          ementa is not null"
+          ementa is not null
+          AND (ORGAOJULGADOR LIKE '%Direito Civil%' OR ORGAOJULGADOR LIKE '%Direito Comercial%') "
     }
 }
 output {
