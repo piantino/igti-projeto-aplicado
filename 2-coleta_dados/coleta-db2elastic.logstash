@@ -10,7 +10,8 @@ input {
         statement =>
           "select
           cdprocesso codigo,
-          nuprocesso processo,
+          nuprocesso numero,
+          tjsc_seqprocesso(proc.cdprocesso) seq, -- TODO: Testar
           dtmovimentacao movimentacao,
           relator,
           orgaojulgador,
