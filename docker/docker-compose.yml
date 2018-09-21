@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  ml:
+    build: ml
+    working_dir: /ml
+    volumes:
+      - ../notebooks/:/opt/notebooks/
+    ports:
+      - 8888:8888
