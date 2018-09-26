@@ -8,3 +8,23 @@ services:
       - ../notebooks/:/opt/notebooks/
     ports:
       - 8888:8888
+  elasticsearch:
+    build: elasticsearch
+    working_dir: /elasticsearch
+    volumes:
+      - ./data:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    environment:
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+  kibana:
+    build: kibana
+    working_dir: /kibana
+    ports:
+      - 5601:5601
+    
