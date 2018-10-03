@@ -1,18 +1,16 @@
 version: '3'
 
 services:
-  ml:
-    build: ml
-    working_dir: /ml
+  anaconda:
+    build: anaconda
     volumes:
-      - ../notebooks/:/opt/notebooks/
+      - ../:/opt/notebooks/
     ports:
       - 8888:8888
   elasticsearch:
     build: elasticsearch
-    working_dir: /elasticsearch
     volumes:
-      - ./data:/usr/share/elasticsearch/data
+      - ./elasticsearch/data:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
     environment:
@@ -22,9 +20,9 @@ services:
       memlock:
         soft: -1
         hard: -1
-  kibana:
-    build: kibana
-    working_dir: /kibana
-    ports:
-      - 5601:5601
+#  kibana:
+#    build: kibana
+#    working_dir: /kibana
+#    ports:
+#      - 5601:5601
     
