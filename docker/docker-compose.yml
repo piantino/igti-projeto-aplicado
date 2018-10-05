@@ -7,12 +7,14 @@ services:
       - ../:/opt/notebooks/
     ports:
       - 8888:8888
+    network_mode: "host"
   elasticsearch:
     build: elasticsearch
     volumes:
       - ./elasticsearch/data:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
+    network_mode: "host"
     environment:
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
@@ -20,9 +22,11 @@ services:
       memlock:
         soft: -1
         hard: -1
-#  kibana:
-#    build: kibana
-#    working_dir: /kibana
-#    ports:
-#      - 5601:5601
-    
+  kibana:
+    build: kibana
+    working_dir: /kibana
+    ports:
+      - 5601:5601
+    network_mode: "host"
+    environment:
+      ELASTICSEARCH_URL: http://localhost:9200    
