@@ -3,3 +3,4 @@ docker/elasticsearch/data/
 notebooks/2-coleta/acordaos/data/
 notebooks/2-coleta/acordaos/set-properties.sh
 notebooks/2-coleta/rotulos/data/
+*data/
