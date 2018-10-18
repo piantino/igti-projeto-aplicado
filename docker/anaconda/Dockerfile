@@ -6,5 +6,7 @@ EXPOSE 8888
 
 RUN pip install elasticsearch
 RUN pip install elasticsearch_dsl
+RUN pip install stop-words
+RUN pip install unidecode
 
 CMD ["/opt/conda/bin/jupyter", "notebook", "--notebook-dir=/opt/notebooks", "--ip='*'", "--port=8888", "--no-browser", "--allow-root"]
