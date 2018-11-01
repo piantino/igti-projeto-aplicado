@@ -1,5 +1,4 @@
-# igti-projeto-aplicado
-Projeto aplicado no "MBA em Aprendizado de Máquina" para a classificação de processos da 3ª vice presidência do Tribunal de Santa Catarina.
+# Projeto: Classificação de processos para distribuição entre assessores.
 
 > Aluno: [Andre Porto Leal Piantino](http://andrepiantino.com.br)<br>
 > Insituição: [IGTI - Instituto de Gestão e Tecnologia da Informação](https://www.igti.com.br)<br>
@@ -7,35 +6,57 @@ Projeto aplicado no "MBA em Aprendizado de Máquina" para a classificação de p
 > Linha de Especialização: Machine Learning Aplicado ao Processamento de Textos<br>
 > Orientador: Professor Rafael Albergaria Carmo
 
+## O problema
+
+
+3ª vice presidência do Tribunal de Santa Catarina
+
 ---
 
-### O problema
+## A proposta de solução
 
+---
 
+## Os dados
 
-### A proposta de solução
-
-### Os dados
-
-Dos mais de 200 mil acórdãos disponíveis foram selecionados apenas as ementas de processos que podem tramitar na 3ª vice presidência, totalizando mais do que cento e dez mil registros (**111.361**).<br>
+A base dados de acórdãos conta com mais de 200 mil ementas, para esse trabalho foram selecionados apenas as ementas de processos que podem tramitar na 3ª vice presidência, totalizando mais do que cento e dez mil registros (**111.361**).<br>
 Os dados foram coletados no dia **31/10/2018**.
 
 #NOTEBOOK: [analise_coleta.ipynb](notebooks/analise_coleta.ipynb)
 
+---
 
-#### Fonte de dados
+### Fonte de dados
 
-Essas informações são **públicas** e podem ser acessadas na [Busca de Jurisprudência Catarinense](http://busca.tjsc.jus.br/jurisprudencia/).
+A ementas são **públicas** e podem ser acessadas na [Busca de Jurisprudência Catarinense](http://busca.tjsc.jus.br/jurisprudencia/).
 
-#### Estrutura
+---
 
-### Pré-processamento
+### Estrutura
 
-### Aprendizado de modelos
+
+---
+
+## Rótulos
+
+
+Existem duas fontes de rótulos, ou seja processos já classificados. Uma delas é obtida da Base do Sistema SAJ a qual é alimentada pelos estagiários (especialistas júniors) e pelos assessores (especialistas), denominado "rótulos manuais". A outra provém de um script que busca frases expecíficas, desenvolvido por Luis e Glauco, denominada "rótulos script".
+
+---
+
+## Pré-processamento
+
+---
+
+## Aprendizado de modelos
+
 
 supervisionado
 
-### Avaliação e comparação de modelos
+---
+## Avaliação e comparação de modelos
 
 
-### Conclusão
+---
+## Conclusão
+---
