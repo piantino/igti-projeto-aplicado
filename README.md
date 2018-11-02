@@ -42,6 +42,10 @@ A ementas são **públicas** e podem ser acessadas na [Busca de Jurisprudência 
 
 Existem duas fontes de rótulos, ou seja processos já classificados. Uma delas é obtida da Base do Sistema SAJ a qual é alimentada pelos estagiários (especialistas júniors) e pelos assessores (especialistas), denominado "rótulos manuais". A outra provém de um script que busca frases expecíficas, desenvolvido por Luis e Glauco, denominada "rótulos script".
 
+### Tipos de rótulos
+
+
+
 ---
 
 ## Pré-processamento
