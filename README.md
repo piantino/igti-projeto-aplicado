@@ -64,3 +64,8 @@ supervisionado
 ---
 ## Conclusão
 ---
+
+## Executando o projeto
+
+cd ./docker
+docker-composer up
