@@ -19,7 +19,7 @@
 
 ## Os dados
 
-A base dados de acórdãos conta com mais de 200 mil ementas, para esse trabalho foram selecionados apenas as ementas de processos que podem tramitar na 3ª vice presidência, totalizando mais do que cento e dez mil registros (**111.361**).<br>
+A base dados de acórdãos conta com mais de 200 mil ementas, para esse trabalho foram selecionados apenas as ementas de processos que podem tramitar na 3ª vice presidência, totalizando mais de **111.361???** registros .<br>
 Os dados foram coletados no dia **31/10/2018**.
 
 #NOTEBOOK: [analise_coleta.ipynb](notebooks/analise_coleta.ipynb)
@@ -40,7 +40,7 @@ A ementas são **públicas** e podem ser acessadas na [Busca de Jurisprudência 
 ## Rótulos
 
 
-Existem duas fontes de rótulos, ou seja processos já classificados. Uma delas é obtida da Base do Sistema SAJ a qual é alimentada pelos estagiários (especialistas júniors) e pelos assessores (especialistas), denominado "rótulos manuais". A outra provém de um script que busca frases expecíficas, desenvolvido por Luis e Glauco, denominada "rótulos script".
+Existem duas fontes de rótulos, ou seja processos já classificados. Uma delas é obtida da Base do Sistema SAJ a qual é alimentada pelos estagiários (especialistas júniors) e pelos assessores (especialistas), denominado "rótulos manuais". A outra provém de um script que busca frases expecíficas, desenvolvido por [Luís Felipe Kuhn Göcks](https://www.linkedin.com/in/lu%C3%ADs-felipe-kuhn-g%C3%B6cks-9a9874153/) e [Glauber Machado Pinto](https://www.linkedin.com/in/glauber-machado-pinto/), denominada "rótulos script".
 
 ### Tipos de rótulos
 
