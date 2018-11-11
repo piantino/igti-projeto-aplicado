@@ -1,0 +1,6 @@
+elasticsearch
+elasticsearch_dsl
+stop-words
+unidecode
+pyth
+cx_Oracle
