@@ -63,7 +63,13 @@ supervisionado
 
 ---
 ## Conclusão
+
+
 ---
+
+## Referências
+
+https://ahmedbesbes.com/how-to-mine-newsfeed-data-and-extract-interactive-insights-in-python.html
 
 ## Executando o projeto
 
