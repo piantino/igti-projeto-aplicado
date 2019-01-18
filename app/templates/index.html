@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1>Classificador de processos</h1>
+    <p>Busca pelos acordão no TJSC e classifica pelo texto da ementa</p>
+    <form>
+      <input type="text" placeholder="Número do processo" name="processo" value="{{ processo }}"/>
+      <button type="submit" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-flash"></span> Classificar</a>
+    </form>
+  </div>
+</div>
+<div class="container">
+
+  <div class="row">
+
+    {% for item in lista %}      
+      <div class="col-md-12">
+        <pre>{{ item.acordao.texto }}</pre>
+        <p>{{ item.acordao.ementa }}</p>
+
+        <pre>{{ item.classes }}</pre>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
