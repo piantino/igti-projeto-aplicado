@@ -3,3 +3,5 @@ requests
 bs4
 sklearn
 flask
+unidecode
+stop_words
