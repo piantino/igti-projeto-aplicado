@@ -1,7 +1,8 @@
 # Usado apenas para a dependência da app
 requests
 bs4
-sklearn
+sklearn==0.20.1
 flask
 unidecode
 stop_words
+
