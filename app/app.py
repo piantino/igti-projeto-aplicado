@@ -1,8 +1,8 @@
 import flask
 import json
+import os
 
 import crawler
-
 import classificador
 
 classificador = classificador.Classificador(['EXP', 'BAN', 'OIG', 'DAN', 'SEG', 'CON'])
@@ -26,4 +26,4 @@ def index():
     return flask.render_template('index.html', lista=lista, processo=processo)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=os.environ.get('PORT', 5000))
