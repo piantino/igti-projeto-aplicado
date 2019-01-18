@@ -5,7 +5,9 @@ import os
 import crawler
 import classificador
 
-classificador = classificador.Classificador(['EXP', 'BAN', 'OIG', 'DAN', 'SEG', 'CON'])
+rotulos = ['EXP', 'BAN', 'OIG', 'DAN', 'SEG', 'CON']
+
+classificador = classificador.Classificador(rotulos)
 juris = crawler.Crawler()
 
 app = flask.Flask(__name__)
@@ -23,7 +25,10 @@ def index():
             classes = classificador.classificar(acordao['ementa'])
             lista.append({'acordao': acordao, 'classes': classes})
 
-    return flask.render_template('index.html', lista=lista, processo=processo)
+    return flask.render_template('index.html', lista=lista, processo=processo, rotulos=rotulos)
+
+def validar_processo(processo):
+    raise ValueError('Implementar')
 
 if __name__ == "__main__":
     app.run(port=os.environ.get('PORT', 5000))
