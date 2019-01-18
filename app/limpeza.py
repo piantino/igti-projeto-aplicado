@@ -1,6 +1,5 @@
 import string
 import re
-from nltk import tokenize
 from unidecode import unidecode
 from stop_words import get_stop_words
 
