@@ -12,13 +12,16 @@ app = flask.Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    processo = '0025142-07.2016.8.24.0000'
     lista = []
-    acordaos = juris.get_acordaos(processo)
+    processo = '' 
 
-    for acordao in acordaos:
-        classes = classificador.classificar(acordao['ementa'])
-        lista.append({'acordao': acordao, 'classes': classes})
+    if flask.request.args.get('processo'):
+        processo = flask.request.args.get('processo')
+        acordaos = juris.get_acordaos(processo)
+
+        for acordao in acordaos:
+            classes = classificador.classificar(acordao['ementa'])
+            lista.append({'acordao': acordao, 'classes': classes})
 
     return flask.render_template('index.html', lista=lista, processo=processo)
 

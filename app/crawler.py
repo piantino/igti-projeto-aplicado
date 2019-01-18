@@ -1,10 +1,6 @@
-import time
-from datetime import datetime
-
 import requests
 from bs4 import BeautifulSoup
 from bs4.element import Comment
-from selenium import webdriver
 
 class Crawler(object):
     def __init__(self):

@@ -21,8 +21,18 @@
         <pre>{{ item.acordao.texto }}</pre>
         <p>{{ item.acordao.ementa }}</p>
 
-        <pre>{{ item.classes }}</pre>
+        {% if item.classes|length > 0 %}
+          <p class="alert alert-info">Classe(s):
+            {% for classe in item.classes %}
+            <span class="badge badge-dark">{{ classe }}</span>
+            {% endfor %}
+          </p>
+        {% else %}
+          <p class="alert alert-warning">Nenhuma classe encontrada.</p>
+        {% endif %}
+        <br>
       </div>
+      
     {% endfor %}
   </div>
 </div>
