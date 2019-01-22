@@ -6,7 +6,7 @@ import re
 import crawler
 import classificador
 
-rotulos = ['EXP', 'BAN', 'OIG', 'DAN', 'SEG', 'CON']
+rotulos = ['EXP', 'BAN', 'OIG', 'DAN', 'SEG', 'CON', 'OIE']
 
 classificador = classificador.Classificador(rotulos)
 juris = crawler.Crawler()
