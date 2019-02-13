@@ -12,7 +12,7 @@ class Classificador(object):
         classes = []
         for p in self.pipelines:
             resultado = p.predict([texto])
-            if resultado != 'NONE':
+            if resultado[0] != 'NONE':
                 classes.append(resultado[0])
         
         return classes

@@ -5,10 +5,12 @@ import re
 
 import crawler
 import classificador
+import classificador_leis
 
 rotulos = ['EXP', 'BAN', 'OIG', 'DAN', 'SEG', 'CON', 'OIE']
 
-classificador = classificador.Classificador(rotulos)
+clf = classificador.Classificador(rotulos)
+clf_lei = classificador_leis.ClassificadorLeis()
 juris = crawler.Crawler()
 
 app = flask.Flask(__name__)
@@ -23,7 +25,10 @@ def index():
         acordaos = juris.get_acordaos(processo)
 
         for acordao in acordaos:
-            classes = classificador.classificar(acordao['ementa'])
+            classes = clf.classificar(acordao['ementa'])
+            classe_lei = clf_lei.classificar(acordao['ementa'])
+            if classe_lei:
+                classes.append(classe_lei)
             lista.append({'acordao': acordao, 'classes': classes})
 
     return flask.render_template('index.html', lista=lista, processo=processo, rotulos=rotulos)

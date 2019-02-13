@@ -15,8 +15,12 @@ class ClassificadorLeis(object):
 
         m = [0] * len(self.features)
         for lei in leis:
-            i = self.features.index(lei)
-            m[i] = m[i] + 1
+            if lei in self.features:
+                i = self.features.index(lei)
+                m[i] = m[i] + 1
     
         resultado = self.pipeline.predict([m])
-        return resultado[0]
+        print(resultado)
+        if resultado[0] != 'None':
+               return resultado[0]
+        return None
