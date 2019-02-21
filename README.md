@@ -9,3 +9,7 @@
 ## Relatório do projeto
 
 https://docs.google.com/document/d/1dkST-WcJiTggavwx7rDRa6Ar9Lt1d2U97ZuTczjKQfY/edit?usp=sharing
+
+## Classificador
+
+https://igti-projeto-aplicado.herokuapp.com/
