@@ -26,10 +26,8 @@ def index():
 
         for acordao in acordaos:
             classes = clf.classificar(acordao['ementa'])
-            classe_lei = clf_lei.classificar(acordao['ementa'])
-            if classe_lei:
-                classes.append(classe_lei)
-            lista.append({'acordao': acordao, 'classes': classes})
+            classe_lei, leis = clf_lei.classificar(acordao['ementa'])
+            lista.append({'acordao': acordao, 'classes': classes, 'classe_lei': classe_lei, 'leis': leis})
 
     return flask.render_template('index.html', lista=lista, processo=processo, rotulos=rotulos)
 

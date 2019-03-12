@@ -22,12 +22,25 @@
       <pre>{{ item.acordao.texto }}</pre>
       <p>{{ item.acordao.ementa }}</p>
 
-      {% if item.classes|length > 0 %}
-      <p class="alert alert-info">Classe(s):
-        {% for classe in item.classes %}
-        <span class="badge badge-dark">{{ classe }}</span>
-        {% endfor %}
-      </p>
+      {% if item.classes|length > 0 or item.classe_lei %}
+      <div class="alert alert-info">
+        {% if item.classes|length > 0 %}
+          <p>Classificado pelos termos como:
+          {% for classe in item.classes %}
+          <span class="badge badge-dark">{{ classe }}</span>
+          {% endfor %}
+          </p>
+        {% endif %}
+        {% if item.classe_lei %}
+          <p>Classificado pelas leis e artigos: <span class="badge badge-dark">{{ item.classe_lei }}</span>
+          (
+          {% for lei in item.leis %}
+            {{ lei }},
+          {% endfor %}
+          )
+          </p>
+        {% endif %}
+      </div>
       {% else %}
       <p class="alert alert-warning">Nenhuma classe encontrada.</p>
       {% endif %}

@@ -11,7 +11,7 @@ class ClassificadorLeis(object):
         leis = self.nomalizador.get_leis(ementa)
 
         if len(leis) == 0:
-            return None
+            return (None, None)
 
         m = [0] * len(self.features)
         for lei in leis:
@@ -21,6 +21,4 @@ class ClassificadorLeis(object):
     
         resultado = self.pipeline.predict([m])
         print(resultado)
-        if resultado[0] != 'None':
-               return resultado[0]
-        return None
+        return (resultado[0], leis)

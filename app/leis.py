@@ -7,7 +7,12 @@ class Leis(object):
         leis = []
         for lei in self.extrair_leis(texto):
             norm = self.normalizar_lei(lei)
-            leis.append(norm);
+            leis.append(norm)
+
+        for art in self.extrair_artigos(texto):
+            numero = art.replace('.', '')
+            leis.append(numero)
+
         return leis
 
     def lei_valida(self, lei):
@@ -17,8 +22,13 @@ class Leis(object):
         terms = re.findall('\s(\d*\.?\d+\/\d{2,4})[^\d\/]', texto.lower())
         return filter(self.lei_valida, list(set(terms)))
 
+    def extrair_artigos(self, texto):
+        texto = texto.replace('art.', 'artigo')
+        terms = re.findall('\s(artigo \d*\.?\d+)', texto.lower())
+        return terms
+
     def normalizar_lei(self, lei):
-        (numero, ano) = lei.split('/');
+        (numero, ano) = lei.split('/')
         return '{}/{}'.format(self.normalizar_numero(numero), self.normalizar_ano(ano))
 
     def normalizar_numero(self, numero):
