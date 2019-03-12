@@ -4,6 +4,8 @@ import load_models
 
 class Leis(object):
     def get_leis(self, texto):
+        texto = texto.lower()
+
         leis = []
         for lei in self.extrair_leis(texto):
             norm = self.normalizar_lei(lei)
@@ -19,12 +21,12 @@ class Leis(object):
         return not re.match("^[\d\.]+/\d{3}$", lei)
 
     def extrair_leis(self, texto):
-        terms = re.findall('\s(\d*\.?\d+\/\d{2,4})[^\d\/]', texto.lower())
+        terms = re.findall('\s(\d*\.?\d+\/\d{2,4})[^\d\/]', texto)
         return filter(self.lei_valida, list(set(terms)))
 
     def extrair_artigos(self, texto):
         texto = texto.replace('art.', 'artigo')
-        terms = re.findall('\s(artigo \d*\.?\d+)', texto.lower())
+        terms = re.findall('\s(artigo \d*\.?\d+)', texto)
         return terms
 
     def normalizar_lei(self, lei):
