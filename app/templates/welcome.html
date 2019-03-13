@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="offset-md-2 col-md-8">
+            <h3>Classificação de acórdão por Machine Learning</h3>
+            
+            <p class="lead">Busca por acórdãos no Tribunal de Justiça de Santa Catarina e os classifica de acordo com as matérias utilizadas pela Terceira Vice-Presidência para distribuição entre acessores.</p>
+            <p>A versão atual classifica os acordãos em
+                {% for rotulo in rotulos[:-2] %}
+                <strong>{{rotulo}}</strong>,
+                {% endfor %}
+                <strong>{{rotulos[-2]}}</strong> e <strong>{{rotulos[-1]}}</strong>.
+            </p>
+            <p class="text-muted pt-5">
+                Essa aplicação foi desenvolvida por <a href="https://about.me/andre.piantino">André Porto Leal Piantino</a> como resultado do projeto aplicado no MBA em Aprendizado de Máquina no <span title="Instituto de Gestão e Tecnologia da Informação">IGTI</span>.
+            </p>
+        </div>
+    </div>
+</div>

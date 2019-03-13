@@ -2,62 +2,53 @@
 
 {% block content %}
 
-<div class="jumbotron text-center">
-  <div class="container">
-    <h2>Classificador de processos</h2>
-    <p>Busca acordãos no TJSC e classifica pelo texto da ementa</p>
-    <form>
-      <input type="text" class="input-lg" style="width: 300px" placeholder="Número do processo" name="processo" value="{{ processo }}" autofocus/>
-      <button type="submit" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-flash"></span> Classificar</a>
-    </form>
-  </div>
-</div>
-<div class="container">
-
-  <div class="row">
-
 {% if lista|length > 0 %}
-  {% for item in lista %}      
-    <div class="col-md-12">
-      <pre>{{ item.acordao.texto }}</pre>
-      <p>{{ item.acordao.ementa }}</p>
 
-      {% if item.classes|length > 0 or item.classe_lei %}
-      <div class="alert alert-info">
-        {% if item.classes|length > 0 %}
-          <p>Classificado pelos termos como:
-          {% for classe in item.classes %}
-          <span class="badge badge-dark">{{ classe }}</span>
-          {% endfor %}
-          </p>
-        {% endif %}
-        {% if item.classe_lei %}
-          <p>Classificado pelas leis e artigos: <span class="badge badge-dark">{{ item.classe_lei }}</span>
-          (
-          {% for lei in item.leis %}
-            {{ lei }},
-          {% endfor %}
-          )
-          </p>
+  <div class="container">
+
+  {% for item in lista %}
+    <div class="row shadow-sm p-3 mb-4 border rounded bg-light">
+      <div class="col-md-5">
+        <pre>{{ item.acordao.texto }}</pre>
+        {% if item.classe %}
+        <h2><small>Classificado como </small><span class="badge badge-dark">{{ item.classe }}</span></h2>
+
+
+        <div class="text-info p-1">
+          {% if item.classes|length > 0 %}
+            <p>Pela ocorrência de palavras:
+            {% for classe in item.classes %}
+            {{ classe }}
+            {% endfor %}
+            </p>
+          {% endif %}
+          {% if item.classe_lei %}
+            <p>Pelas leis e artigos: {{ item.classe_lei }}
+            <ul>
+            {% for lei in item.leis %}
+              <li>{{ lei }}</li>
+            {% endfor %}
+            </ul>
+            </p>
+          {% endif %}
+        </div>
+        {% else %}
+        <p class="alert alert-warning">Nenhuma classe encontrada.</p>
         {% endif %}
       </div>
-      {% else %}
-      <p class="alert alert-warning">Nenhuma classe encontrada.</p>
-      {% endif %}
-      <br>
-    </div>  
+      <div class="col-md-7">
+        <p>{{ item.acordao.ementa }}</p>
+      </div>
+    </div>     
   {% endfor %}
-{% elif processo %}
-    <p class="alert alert-danger">Não foram encontrados acordãos para o processo <strong>{{processo}}</strong>.</p>
-{% else %}
-    <p class="alert alert-info">A versão atual classifica em
-    {% for rotulo in rotulos[:-2] %}
-      <strong>{{rotulo}}</strong>,
-    {% endfor %}
-    <strong>{{rotulos[-2]}}</strong> e <strong>{{rotulos[-1]}}</strong>
-    </p>
-{% endif %}
 
   </div>
-</div>
+
+{% elif processo %}
+    <p class="alert alert-danger">Não foram encontrados acordãos para o processo <strong>{{processo}}</strong>.</p>
+
+{% else %}
+  {% include "welcome.html" %}
+{% endif %}
+
 {% endblock %}

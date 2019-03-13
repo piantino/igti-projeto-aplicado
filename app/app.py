@@ -25,14 +25,24 @@ def index():
         acordaos = juris.get_acordaos(processo)
 
         for acordao in acordaos:
-            classes = clf.classificar(acordao['ementa'])
-            classe_lei, leis = clf_lei.classificar(acordao['ementa'])
             
-            if leis:
-                leis = list(set(leis))
-            lista.append({'acordao': acordao, 'classes': classes, 'classe_lei': classe_lei, 'leis': leis})
+            lista.append(classificar(acordao))
 
     return flask.render_template('index.html', lista=lista, processo=processo, rotulos=rotulos)
+
+def classificar(acordao):
+    classes = clf.classificar(acordao['ementa'])
+    classe_lei, leis = clf_lei.classificar(acordao['ementa'])
+
+    if len(classes) == 0:
+        classe = classe_lei
+    else:
+        classe = classes[0]
+         
+    if leis:
+        leis = list(set(leis))
+
+    return {'acordao': acordao, 'classe': classe, 'classes': classes, 'classe_lei': classe_lei, 'leis': leis}
 
 def formatar_num_processo(processo):
     num = re.sub('[^\d]', '', processo)
