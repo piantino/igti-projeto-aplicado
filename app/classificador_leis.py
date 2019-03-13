@@ -20,5 +20,8 @@ class ClassificadorLeis(object):
                 m[i] = m[i] + 1
     
         resultado = self.pipeline.predict([m])
-        print(resultado)
+
+        if resultado[0] == 'NONE':
+            return (None, None)
+
         return (resultado[0], leis)
