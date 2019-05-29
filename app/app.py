@@ -7,9 +7,17 @@ import crawler
 import classificador
 import classificador_leis
 
-rotulos = ['EXP', 'BAN', 'OIG', 'DAN', 'SEG', 'CON', 'OIE']
+rotulos = {
+    'BAN': 'Bancário',
+    'CON': 'Contratos',
+    'DAN': 'Dano, Responsabilidade Civil',
+    'EXP': 'Expurgos Cumprimento',
+    'OIG': 'OI Conhecimento',
+    'OIE': 'OI Execução de Sentença',
+    'SEG': 'Seguros em geral'
+}
 
-clf = classificador.Classificador(rotulos)
+clf = classificador.Classificador(list(rotulos.keys()))
 clf_lei = classificador_leis.ClassificadorLeis()
 juris = crawler.Crawler()
 
